@@ -42,7 +42,7 @@ function print_parameters() {
 
 function set_start_default_values() {
  # publicip and cirruscmd are always needed
- publicip=$(curl -s https://api.ipify.org)
+ publicip=$(curl -s http://ifconfig.me)
  if [[ -z $publicip ]]; then
   publicip="127.0.0.1"
  fi
