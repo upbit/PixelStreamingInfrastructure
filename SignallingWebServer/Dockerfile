@@ -9,8 +9,9 @@ WORKDIR /opt/SignallingWebServer
 RUN npm install .
 
 # Setup runtime
-WORKDIR /opt/SignallingWebServer/platform_scripts/bash
-RUN bash -x setup.sh
+RUN apt-get update
+WORKDIR /opt/SignallingWebServer/platform_scripts/bash/
+RUN bash -x ./setup.sh
 
 # Expose TCP port 80 for player WebSocket connections and web server HTTP access
 EXPOSE 80
