@@ -12,6 +12,7 @@ RUN npm install .
 RUN apt-get update
 WORKDIR /opt/SignallingWebServer/platform_scripts/bash/
 RUN bash -x ./setup.sh
+RUN chmod +x ./Start_WithTURN_SignallingServer.sh
 
 # Expose TCP port 80 for player WebSocket connections and web server HTTP access
 EXPOSE 80
@@ -35,4 +36,5 @@ EXPOSE 3478
 EXPOSE 3479
 
 # Set the signalling server as the container's entrypoint
-ENTRYPOINT ["/usr/local/bin/node", "/opt/SignallingWebServer/cirrus.js"]
+# ENTRYPOINT ["/usr/local/bin/node", "/opt/SignallingWebServer/cirrus.js"]
+CMD /opt/SignallingWebServer/platform_scripts/bash/Start_WithTURN_SignallingServer.sh
